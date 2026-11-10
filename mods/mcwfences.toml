@@ -1,0 +1,33 @@
+id = "mcwfences"
+kind = "mod"
+name = "Macaw's Fences and Walls"
+summary = "Port of Macaw's Fences and Walls"
+description = """
+A port of [Macaw's Fences and Walls](https://github.com/sketchmacaw/Fences) 1.1.2 by
+Sketch Macaw and Peachy Macaw for Horizon.
+150 blocks — 10 leaf hedges, 47 fences (picket,
+stockade, horse and wired), 37 gates (highley, pyramid and railing) and 56 walls (modern,
+railing, pillared and grass-topped) — in eleven woods and a range of stone finishes."""
+authors = ["Sketch Macaw", "Peachy Macaw", "unnamed"]
+owners = ["unnamed0631"]
+owner_ids = [69778704]
+license = "MIT"
+source = "https://github.com/unnamed0631/mcwfences"
+icon = "icons/mcwfences.png"
+categories = ["decoration"]
+tags = ["port", "fences", "walls", "gates", "hedges", "building", "blocks"]
+
+[[versions]]
+version = "1.0.0"
+published = "2026-11-10"
+game = "26.3"
+file = "mcwfences-1.0.0.hmod"
+sha256 = "30253e89dd738022f4843ef59f6a0909e96f615ea8f2eeaf055fcb1fcad859ce"
+changelog = """
+First release.
+
+- All 150 blocks: hedges, fences, gates and walls in eleven woods and a range of stone finishes.
+- Models, textures, names, 192 recipes, 150 loot tables, tags and five language files.
+- Wooden fences burn in a furnace, stone sets need a pickaxe, and crafting and drops work.
+
+Not Ported: the 11 wired fences deal no damage, that needs a native mod."""
