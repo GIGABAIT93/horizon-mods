@@ -1,26 +1,23 @@
 id = "gyro"
 kind = "native-mod"
 name = "Gyro"
-summary = "Full 6DOF flight physics and immersive gyro camera tilt for Minecraft Horizon, inspired by Do a Barrel Roll."
+summary = "Builds again on the 2026-11-10 Nightly after Horizon's client reorganisation; same flight controls."
 description = """
-**Fly an elytra like an aircraft.** Gyro swaps Horizon's locked horizon for full six-degree-of-freedom control: bank into a roll, pull through it to carve a turn, push the nose past vertical and loop. Inspired by the feel of the Java mod *Do a Barrel Roll*, written from scratch on Horizon's native hook points.
+Fly an elytra like an aircraft. Gyro swaps Horizon's locked horizon for full six-degree-of-freedom control: bank into a roll, pull through it to carve a turn, push the nose past vertical and loop. Inspired by the feel of the Java mod Do a Barrel Roll, written from scratch on Horizon's native hook points.
 
-| While gliding | What it does |
-|---|---|
-| Mouse left / right | Roll — a full 360° with no snap-back |
-| Mouse up / down | Pitch through your current bank, so a wing-down pull carves a turn |
-| `A` / `D` | Rudder yaw for fine heading corrections |
+While gliding\tWhat it does
+Mouse left / right\tRoll — a full 360° with no snap-back
+Mouse up / down\tPitch through your current bank, so a wing-down pull carves a turn
+A / D\tRudder yaw for fine heading corrections
+In third person your avatar, elytra and held item stay pinned to the camera while the world, sky and entities roll around you. When you stop gliding, the view eases back to level and the mouse is an ordinary camera again. Everything else stays vanilla — no keybinds, no config, no setup, just one row in Options > Mods.
 
-In third person your avatar, elytra and held item stay pinned to the camera while the world, sky and entities roll around you. When you stop gliding, the view eases back to level and the mouse is an ordinary camera again. Everything else stays vanilla — no keybinds, no config, no setup, just one row in **Options > Mods**.
+What it actually touches. Client-side camera matrices and the player's own model only. There is no network, filesystem or process access anywhere in the source, no server hooks and no server component; the server never hears about the roll. It declares hooks: 3, so the launcher builds it on any Horizon whose native hook API is ≥ 3 rather than one pinned commit. Built and tested against Horizon 8933e8c2 (Nightly 2026-11-10) with horizon-mixins e59da90. One honest caveat: three of the six hooks sit on Horizon's own private functions, so when Horizon moves one of those functions — as the 2026-11-10 Nightly moved apply_mouse_look and mobs::render — the bundle needs the new path and we publish it as a new version. The registry's nightly check tells us, and the launcher warns before an install it knows is broken. The whole mod is seven short Rust files plus one mixin manifest under mixins/gyro/ — read them before you build.
 
-**What it actually touches.** Client-side camera matrices and the player's own model only. There is no network, filesystem or process access anywhere in the source, no server hooks and no server component; the server never hears about the roll. It declares `hooks: 3`, so the launcher builds it on any Horizon whose native hook API is ≥ 3 rather than one pinned commit. Built and tested against Horizon `ba6344a` with horizon-mixins `d9c83d70`. The whole mod is seven short Rust files plus one mixin manifest under `mixins/gyro/` — read them before you build.
-
-*Native mods are unsandboxed code running with your account's permissions; install only from authors you trust.*
+Native mods are unsandboxed code running with your account's permissions; install only from authors you trust.
 
 Source & build guide: https://github.com/CGRLabs/gyro
 
-Community discovery & mod docs: https://horizon-hub-seven.vercel.app (independent, unofficial — indexes the official registry)
-"""
+Community discovery & mod docs: https://horizon-hub-seven.vercel.app (independent, unofficial — indexes the official registry)"""
 authors = ["CGRLabs"]
 owners = ["CGRLabs"]
 license = "MIT"
@@ -29,6 +26,26 @@ icon = "icons/gyro.png"
 categories = ["transportation"]
 tags = ["elytra", "flight", "barrel-roll", "camera"]
 key = "RWSjKGIJUKKXHvvhxzNN2VPPrXSEr47JXVgGpCwrOOHoneuQjTWWvk1g"
+
+[[versions]]
+version = "1.4.2"
+published = "2026-11-10"
+game = "26.3"
+file = "gyro-1.4.2.hnmod"
+sha256 = "fa856e14eb7f54a3f0cc612dd02fa203ec8db4caa425c5f28f43cdf37834c283"
+signature = """
+untrusted comment: signature from Horizon Hub signing key (CGRLabs)
+RUSjKGIJUKKXHidxG2ZJDdBLrw7VXxFwFFdzJCevRxQewQlHDOt6w5yRD093TStdC0Fl3fSPpl1EkyMsvA8pBlp6v0OpntapMgk=
+trusted comment: timestamp:1794317857\tfile:gyro-1.4.2.hnmod
+0bYFEeIxbBUKrwNIPCbpUchKh0/0hgPeizjmg1n8p8O1bHGLghyQw19v16xzfw6/B54GpyCb6ti+kXDTcRwGDg=="""
+changelog = """
+Follows the 2026-11-10 Nightly's client reorganisation; no player-visible behavior change.
+
+Horizon moved Game::apply_mouse_look out of game.rs into the new game/pointer_capture module. The mouse hook now targets game::pointer_capture::Game<'_>::apply_mouse_look, which is why 1.4.1 failed to build there (E_TARGET_NOT_FOUND).
+Horizon also split the reusable horizon-client-lib crate out of the client, and mobs::render — where the avatar-lock hook sits — is now compiled from it. The gyro support module is therefore declared in crates/horizon-client/src/client_lib.rs instead of lib.rs, so both crates can reach it (both alias themselves as horizon_client).
+The turn hook now matches vanilla's pointer-grab condition, including Horizon Studio's flying camera.
+The bundle pins horizon-mixins e59da90: the older d9c83d70 refuses any support module in the client crate root because lib.rs gained a pub use horizon_client_lib::*; glob it cannot resolve (E_MODULE_CONFLICT); newer horizon-mixins resolves the glob properly.
+The in-game proof harness now records whether the player is still gliding at each step, which is what caught the landing-timing flake during this verification."""
 
 [[versions]]
 version = "1.4.1"
