@@ -1,0 +1,36 @@
+id = "capipimon"
+kind = "mod"
+name = "Capipimon Content"
+summary = "Textures and creature data for Capipimon. Needs the Capipimon listing too."
+description = """
+**Install both listings in the same instance:** Capipimon (the game code) and Capipimon Content (this one, textures and creature data). This listing does nothing on its own.
+
+It holds Capipimon's entity types, textures, language files and licence texts. Install, playing and server notes are on the Capipimon listing.
+
+The models, animations and textures come from Cobblemon and many community add-on packs, and each keeps its own licence. See CREDITS.md in the source for every author, licence and link. The icon shows Cobblemon's Buneary model and shiny texture (CC BY-NC 3.0) wearing Capipimon's original Bow hat.
+
+Talent NPCs on Capipimon servers wear skins of Minecraft accounts chosen by the server, loaded from Mojang's skin servers.
+
+Unofficial fan project, not affiliated with or endorsed by Nintendo, The Pokémon Company, Game Freak or Phase Connect. Pokémon and all related names are trademarks of their respective owners."""
+authors = ["Capippalist Trade Guild"]
+owners = ["Onii133"]
+owner_ids = [257615238]
+license = "GPL-3.0-only AND MIT AND MPL-2.0 AND CC-BY-NC-3.0 AND CC-BY-NC-4.0 AND CC-BY-NC-SA-4.0 AND CC-BY-SA-4.0"
+source = "https://github.com/Onii133/Capipimon"
+icon = "icons/capipimon.png"
+categories = ["game-mechanics", "adventure"]
+tags = ["pokemon", "cobblemon-models", "textures", "fan-made"]
+key = "RWQNf4ubpT1GUJAmgEeuroSrBMAT99qadRw95nD6pDbiONLOvoEqiIcz"
+
+[[versions]]
+version = "0.1.0"
+published = "2026-11-10"
+game = "26.3"
+file = "capipimon-0.1.0.hmod"
+sha256 = "52e51d1d6437c01f42cba0f9412dbb0b6d943dba617ef59eec4287d57a1d29b8"
+signature = """
+untrusted comment: signature from minisign secret key\r
+RUQNf4ubpT1GUOmMuHVJFeLnNURXrgpLEYS2U8/HpiMEEvXXb/n+UvkhzOFrAhVf0pxT4zcqDywFxofUue2E80+7VVMHenZZ+gU=\r
+trusted comment: timestamp:1794345015\tfile:capipimon-0.1.0.hmod\thashed\r
+aDwzV6MpPbuxs9kTIP3X8eBLj7Ws+U9SxopUjyfj69WRgrNtDUSSxjxyD7gdXVlQ/QMLuFr4Quw6ztbGnxdAAw=="""
+changelog = "First release."
