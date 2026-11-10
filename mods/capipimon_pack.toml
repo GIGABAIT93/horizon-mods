@@ -1,0 +1,45 @@
+id = "capipimon_pack"
+kind = "modpack"
+name = "Capipimon Pack"
+summary = "Capipimon and Capipimon Content in one install. Become a Pokémon and fight other players on a Capipimon server."
+description = """
+**The easy way to install Capipimon:** this pack installs both Capipimon listings together, Capipimon (the game code) and Capipimon Content (textures and creature data), at matching versions.
+
+Capipimon is a free, fan-made PvP mod. You play as a Capipimon and fight other players with move kits, guarding and dodging.
+
+### How to play
+1. Install this pack. It becomes its own instance, named "Capipimon Pack".
+2. Select the "Capipimon Pack" instance and press Build. Capipimon is a native mod, so it compiles on your PC; the first build usually takes 10 to 30 minutes.
+3. Press Play and join a Capipimon server. Get the address from whoever runs one.
+
+Native mods run with the same access to your computer as the game. It needs Minecraft 26.3. Single player and LAN worlds stay vanilla, and the server itself isn't public. Install, playing and server notes are on the Capipimon listing.
+
+### Credits and licences
+Capipimon's client code is GPL-3.0-only. The models, animations and textures come from Cobblemon and many community add-on packs, and each keeps its own licence. See CREDITS.md in the source for every author, licence and link. The icon shows Cobblemon's Buneary model and shiny texture (CC BY-NC 3.0) wearing Capipimon's original Bow hat.
+
+Talent NPCs on Capipimon servers wear skins of Minecraft accounts chosen by the server, loaded from Mojang's skin servers.
+
+### Disclaimer
+Unofficial fan project, not affiliated with or endorsed by Nintendo, The Pokémon Company, Game Freak or Phase Connect. Pokémon and all related names are trademarks of their respective owners."""
+authors = ["Capippalist Trade Guild"]
+owners = ["Onii133"]
+owner_ids = [257615238]
+license = "GPL-3.0-only AND MIT AND MPL-2.0 AND CC-BY-NC-3.0 AND CC-BY-NC-4.0 AND CC-BY-NC-SA-4.0 AND CC-BY-SA-4.0"
+source = "https://github.com/Onii133/Capipimon"
+icon = "icons/capipimon_pack.png"
+categories = ["multiplayer", "combat", "adventure"]
+tags = ["pvp", "pokemon", "cobblemon-models", "multiplayer", "fan-made"]
+key = "RWQNf4ubpT1GUJAmgEeuroSrBMAT99qadRw95nD6pDbiONLOvoEqiIcz"
+
+[[versions]]
+version = "0.1.0"
+published = "2026-11-10"
+game = "26.3"
+file = "capipimon_pack-0.1.0.hpack"
+sha256 = "0de316b365a195070584349a1a9f34b6219c3db54119949dedf326dd580bca65"
+signature = """
+untrusted comment: signature from minisign secret key\r
+RUQNf4ubpT1GUAMHA1aIx6F7K/Fgj/T8CIc98YCo0IyU0jfGakh2l1y6ZMkuqDYnWePb1LMMdZ5DBSfjps+CofeyCbofEu4JEw4=\r
+trusted comment: timestamp:1794345015\tfile:capipimon_pack-0.1.0.hpack\thashed\r
+NKUA7/HK0HEG2828NiFaEs5OczfSn5uFr8T+6v9aJBybM4MTKYYPxpEBXK0fnquR7DzF0Zz/+sWJxvLjenLfDg=="""
+changelog = "First release."
